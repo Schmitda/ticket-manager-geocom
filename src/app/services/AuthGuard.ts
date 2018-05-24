@@ -10,21 +10,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     return new Promise((resolve, reject) => {
-      if (this.userState.isLoggedIn) {
-        resolve(true);
-      } else if (this.userState.hasToken()) {
-        this.userService.checkToken().subscribe(() => {
-          if (this.userState.isLoggedIn) {
-            resolve(true);
-          } else {
-            resolve(false);
-          }
-        }, () => {
-          resolve(false);
-        });
-      } else {
-        resolve(false);
-      }
+      resolve(true);
     });
   }
 
