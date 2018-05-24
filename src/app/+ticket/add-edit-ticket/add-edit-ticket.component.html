@@ -1,0 +1,54 @@
+<div class="container">
+  <form #ngForm="ngForm" ngForm="">
+    <div class="form-group">
+      <label for="">Betreff</label>
+      <input class="form-control" required minlength="10" name="subject" [(ngModel)]="ticket.subject" type="text"
+             placeholder="subject">
+    </div>
+    <small>
+      Muss mindestens zehn Zeichen lang sein.
+    </small>
+
+    <div class="form-group">
+      <label for="">Nachricht</label>
+      <textarea class="form-control" minlength="20" maxlength="1000" name="body" id=""
+                cols="30"
+                rows="10"></textarea>
+    </div>
+    <small>
+      Muss mindestens 20 Zeichen lang sein.
+    </small>
+    <small>
+      Darf maximal 1000 Zeichen lang sein
+    </small>
+
+
+    <!-- HIER KÄME DER RADIO-BUTTON HIN -->
+
+    <div class="form-group">
+      <label for="">Type</label>
+      <select required class="form-control" name="type" id="">
+        <option value="">Bitte wählen</option>
+        <option value="network">Netzwerkstörung</option>
+        <option value="hardware">Hardwarestörung</option>
+        <option value="power">Stromstörung</option>
+      </select>
+    </div>
+    <small>
+      Etwas muss ausgewählt werden.
+    </small>
+
+    <div class="form-group">
+      <label for="">Besitzer wählen</label>
+      <select required class="form-control" name="owner" id="">
+        <option value="">Bitte wählen</option>
+        <!-- VERWENDEN SIE EINE FOR-LOOP NGFOR UM ALLE EINTRÄGE AUS DER DB ZU RENDERN -->
+      </select>
+    </div>
+    <small>
+      Etwas muss ausgewählt werden.
+    </small>
+
+    <button class="btn btn-primary"  type="submit">Sichern</button>
+  </form>
+</div>
